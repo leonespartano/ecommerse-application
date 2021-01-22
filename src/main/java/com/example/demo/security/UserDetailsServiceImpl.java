@@ -1,7 +1,10 @@
 package com.example.demo.security;
 
+import com.example.demo.controllers.OrderController;
 import com.example.demo.model.persistence.User;
 import com.example.demo.model.persistence.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,15 +15,22 @@ import java.util.Collections;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+    public static final Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException(username);
+        try {
+            User user = userRepository.findByUsername(username);
+            if (user == null) {
+                log.error("Error in sing up with the user {}", username);
+                throw new UsernameNotFoundException(username);
+            }
+            return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
+        } catch (UsernameNotFoundException ex) {
+            throw new RuntimeException(ex);
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
     }
 }

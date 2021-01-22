@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +25,9 @@ import com.auth0.jwt.JWT;
 
 @Component
 public class AuthenticationVerificationFilter extends BasicAuthenticationFilter {
+    public static final Logger log = LoggerFactory.getLogger(AuthenticationVerificationFilter.class);
+
+
     public AuthenticationVerificationFilter(AuthenticationManager authManager) {
         super(authManager);
     }
@@ -46,18 +52,27 @@ public class AuthenticationVerificationFilter extends BasicAuthenticationFilter 
 
         String token = req.getHeader(SecurityConstants.HEADER_STRING);
         if (token != null) {
-            Algorithm algorithm = Algorithm.RSA256(SecurityConstants.RSA_PUBLIC, SecurityConstants.RSA_PRIVATE);
-            JWTVerifier verifier = JWT.require(algorithm).build();
+            try {
 
-            DecodedJWT jwt = verifier.verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""));
-            String user = jwt.getSubject();
 
-            if (user != null) {
-                return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+                Algorithm algorithm = Algorithm.RSA256(SecurityConstants.RSA_PUBLIC, SecurityConstants.RSA_PRIVATE);
+                JWTVerifier verifier = JWT.require(algorithm).build();
+
+                DecodedJWT jwt = verifier.verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""));
+                String user = jwt.getSubject();
+
+                if (user != null) {
+                    return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+                }
+            }catch (SignatureVerificationException ex){
+                log.error("The token was invalid");
+                throw new RuntimeException(ex);
             }
-
             return null;
+
         }
+
+
         return null;
     }
 
