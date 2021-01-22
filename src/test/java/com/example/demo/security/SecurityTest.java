@@ -37,7 +37,9 @@ public class SecurityTest {
     @Autowired
     private JacksonTester<CreateUserRequest> json;
 
-
+    /*
+        Test that verifies the correct operation of the end point "/create"
+     */
     @Test
     public void createUsers() throws Exception {
         CreateUserRequest newUser = newUser();
@@ -51,6 +53,9 @@ public class SecurityTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.username").value(newUser.getUsername())
         );
     }
+    /*
+        Test that verifies the correct login in of a user
+     */
 
     @Test
     public void loginUser() throws Exception {
@@ -76,12 +81,18 @@ public class SecurityTest {
             assertNotNull(mvcResult.getResponse().getHeaderValue("Authorization"));
     }
 
+    /*
+        Test that verifies that resources cannot be accessed, without prior authentication
+     */
     @Test
     public void userProfileUnauthenticated() throws Exception {
         mvc.perform(get("api/user/test"))
                 .andExpect(status().isForbidden());
     }
 
+    /*
+        Test that verifies the correct access of resources through Jason Web Token
+     */
     @Test
     public void userProfileAuthenticated() throws Exception{
         CreateUserRequest newUser = newUser();

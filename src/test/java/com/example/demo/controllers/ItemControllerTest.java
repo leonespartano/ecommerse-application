@@ -18,6 +18,9 @@ import java.util.Optional;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/*
+    Tests that verify the different methods of the ItemController class
+*/
 public class ItemControllerTest {
 
     private ItemController itemController;

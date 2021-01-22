@@ -1,0 +1,33 @@
+2021-01-21 12:13:03.254  INFO 13061 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-21 12:13:03.255  INFO 13061 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-21 12:13:03.276  INFO 13061 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2021-01-21 12:13:03.741  INFO 13061 --- [nio-8080-exec-1] c.e.demo.controllers.UserController      : created user request success. User: Peter
+2021-01-21 12:13:31.399  INFO 13061 --- [nio-8080-exec-3] c.e.demo.controllers.UserController      : created user request success. User: John
+2021-01-21 12:13:49.695  INFO 13061 --- [nio-8080-exec-4] c.e.demo.controllers.UserController      : created user request success. User: Scott
+2021-01-21 12:14:07.088  INFO 13061 --- [nio-8080-exec-5] c.e.demo.controllers.UserController      : created user request success. User: Joe
+2021-01-21 12:18:07.534  INFO 13061 --- [nio-8080-exec-9] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-21 12:18:08.687  INFO 13061 --- [nio-8080-exec-9] c.e.demo.security.AuthenticationFilter   : The user was successfully singed in Peter
+2021-01-21 12:18:53.185  INFO 13061 --- [nio-8080-exec-8] c.e.demo.security.AuthenticationFilter   : The user was successfully singed in John
+2021-01-21 12:19:09.457  INFO 13061 --- [io-8080-exec-10] c.e.demo.security.AuthenticationFilter   : The user was successfully singed in Scott
+2021-01-21 12:19:21.202  INFO 13061 --- [nio-8080-exec-2] c.e.demo.security.AuthenticationFilter   : The user was successfully singed in Joe
+2021-01-21 12:23:28.826  INFO 13061 --- [nio-8080-exec-7] c.e.demo.controllers.OrderController     : The order was successfully submitted 1
+2021-01-21 12:25:34.010  INFO 13061 --- [nio-8080-exec-2] c.e.demo.controllers.OrderController     : The order was successfully submitted 2
+2021-01-21 12:27:31.527  INFO 13061 --- [nio-8080-exec-6] c.e.demo.controllers.OrderController     : The order was successfully submitted 3
+2021-01-21 12:29:34.017  INFO 13061 --- [nio-8080-exec-2] c.e.demo.controllers.OrderController     : The order was successfully submitted 4
+2021-01-21 12:30:30.595 ERROR 13061 --- [nio-8080-exec-1] c.e.demo.controllers.UserController      : created user request failure, password did not contain at least 7 characters abc
+2021-01-21 12:31:11.455 ERROR 13061 --- [nio-8080-exec-4] c.e.demo.controllers.UserController      : created user request failure, password did not contain at least 7 characters abc
+2021-01-21 12:44:23.747 ERROR 16525 --- [nio-8080-exec-1] c.e.d.security.UserDetailsServiceImpl    : Error in sing up with the user Max
+org.springframework.security.authentication.InternalAuthenticationServiceException: org.springframework.security.core.userdetails.UsernameNotFoundException: Max
+2021-01-21 12:46:36.028 ERROR 16525 --- [nio-8080-exec-5] c.e.d.security.UserDetailsServiceImpl    : Error in sing up with the user Judith
+org.springframework.security.authentication.InternalAuthenticationServiceException: org.springframework.security.core.userdetails.UsernameNotFoundException: Judith
+2021-01-21 12:47:26.926 ERROR 16525 --- [nio-8080-exec-6] c.e.d.s.AuthenticationVerificationFilter : The token was invalid
+com.auth0.jwt.exceptions.SignatureVerificationException: The Token's Signature resulted invalid when verified using the Algorithm: SHA256withRSA
+2021-01-21 12:51:00.419 ERROR 16855 --- [nio-8080-exec-1] c.e.d.s.AuthenticationVerificationFilter : The token was invalid
+java.lang.RuntimeException: com.auth0.jwt.exceptions.SignatureVerificationException: The Token's Signature resulted invalid when verified using the Algorithm: SHA256withRSA
+2021-01-21 12:51:56.029 ERROR 16855 --- [nio-8080-exec-3] c.e.d.s.AuthenticationVerificationFilter : The token was invalid
+java.lang.RuntimeException: com.auth0.jwt.exceptions.SignatureVerificationException: The Token's Signature resulted invalid when verified using the Algorithm: SHA256withRSA
+2021-01-21 12:59:21.495 ERROR 17197 --- [nio-8080-exec-2] c.e.demo.controllers.UserController      : created user request failure, both password did not match
+2021-01-21 12:59:48.725 ERROR 17197 --- [nio-8080-exec-4] c.e.demo.controllers.UserController      : created user request failure, both password did not match
+2021-01-21 13:01:25.975 ERROR 17197 --- [nio-8080-exec-9] c.e.demo.controllers.OrderController     : The order cannot be submitted. Does not exist that user Max
+2021-01-21 13:02:44.305 ERROR 17197 --- [nio-8080-exec-2] c.e.demo.controllers.OrderController     : The order cannot be submitted. Does not exist that user Jennifer
+

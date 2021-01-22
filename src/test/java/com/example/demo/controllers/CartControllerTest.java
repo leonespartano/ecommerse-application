@@ -22,6 +22,9 @@ import java.util.Optional;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/*
+    Tests that verify the different methods of the CartController class
+*/
 public class CartControllerTest {
     private CartController cartController;
     private ModifyCartRequest request;

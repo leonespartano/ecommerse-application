@@ -11,17 +11,22 @@ The unit tests I have implemented at least had 95 percent coverage for classes, 
 ## Splunk
 
 Some Splunk screen-shots:
-
+### Queries
 ![Unit testing log](./images/splunk/CompletedData.png)
 !["Create user" search](./images/splunk/QueryCreatedUserSuccess.png)
 !["Create user failure" search](./images/splunk/QueryCreatedUserFailure.png)
 !["Order submited" search](./images/splunk/QuerySubmitedOrderSuccess.png)
 !["Order submited failure" search](./images/splunk/QuerySubmitedOrderFailure.png)
+### Alert
 ![Email alert](./images/splunk/AlarmLoggingInFailed.png)
+### Dashboard Created User
 ![Visualization](./images/splunk/DashBoardCreatedUsers.png)
 
 ## Jenkins
 
-<!-- A Jenkins screen-shot:
+A Jenkins screen-shot:
 
-![Jenkins project](img/jenkins.png) -->
+![Jenkins project](./images/Jenkins/Configuration.jpg)
+![Jenkins project1](./images/Jenkins/deployment.jpg)
+![Jenkins project2](./images/Jenkins/BuildSucces1.jpg)
+![Jenkins project2](./images/Jenkins/BuildSucces2.jpg)

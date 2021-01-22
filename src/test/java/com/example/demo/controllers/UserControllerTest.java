@@ -19,7 +19,9 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
+/*
+    Tests that verify the different methods of the UserController class
+*/
 public class UserControllerTest {
     private UserController userController;
     private User user;

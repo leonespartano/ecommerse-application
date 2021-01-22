@@ -20,6 +20,9 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/*
+    Tests that verify the different methods of the OrderController class
+*/
 public class OrderControllerTest {
 
 
