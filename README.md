@@ -24,7 +24,7 @@ Some Splunk screen-shots:
 
 ## Jenkins
 
-A Jenkins screen-shot:
+Some Jenkins screen-shots:
 
 ![Jenkins project](./images/Jenkins/Configuration.jpg)
 ![Jenkins project1](./images/Jenkins/deployment.jpg)
