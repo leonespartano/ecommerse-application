@@ -27,6 +27,11 @@ Some Splunk screen-shots:
 A Jenkins screen-shot:
 
 ![Jenkins project](./images/Jenkins/Configuration.jpg)
+
+![Jenkins project](./images/Jenkins/SuccessCompile.jpg)
+![Jenkins project](./images/Jenkins/GitData1.jpg)
+![Jenkins project](./images/Jenkins/GitData2.jpg)
+
 ![Jenkins project1](./images/Jenkins/deployment.jpg)
 ![Jenkins project2](./images/Jenkins/BuildSucces1.jpg)
 ![Jenkins project2](./images/Jenkins/BuildSucces2.jpg)

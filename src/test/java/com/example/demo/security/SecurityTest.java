@@ -87,7 +87,7 @@ public class SecurityTest {
     @Test
     public void userProfileUnauthenticated() throws Exception {
         mvc.perform(get("api/user/test"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 
     /*
